@@ -1,0 +1,20 @@
+<h1>Sou a pagina Raiz</h1>
+
+<!-- Deals Section -->
+<h2>Deals</h2>
+<div class="products-grid">
+  <% @deals.each do |product| %>
+    <div class="product-card">
+      <% if product.photos.attached? %>
+        <%= image_tag product.photos.first.variant(resize_to_fill: [300, 300]) %>
+      <% else %>
+        <%= image_tag 'band saw.jpg', alt: 'Band Saw' %>
+      <% end %>
+      <h3><%= link_to product.name, product_path(product) %></h3>
+      <p>
+        <span class="original-price">$<%= product.price %></span>
+        <span class="discounted-price">$<%= (product.price * (1 - product.discount / 100)).round(2) %></span>
+      </p>
+    </div>
+  <% end %>
+</div>
