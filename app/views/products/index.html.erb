@@ -1,0 +1,12 @@
+<h1>Index de produtos</h1>
+
+<div>
+  <% @products.each do |product| %>
+    <ul class="product-details">
+      <li><%= link_to product.name, product_path(product), class: "product-link" %></li>
+      <li>Descrição: <%= product.description %></li>
+      <li>Preço: <%= number_to_currency product.price %></li>
+      <li>Quatidade: <%= product.stock.presence || "0" %></li>
+    </ul>
+  <% end %>
+</div>

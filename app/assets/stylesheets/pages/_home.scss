@@ -1,13 +1,13 @@
 .products-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2px;
+  gap: 10px;
   justify-content: space-between;
   margin: 20px;
 }
 
 .product-card {
-  width: 348px;
+  width: 340px;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
@@ -34,4 +34,7 @@
 .discounted-price {
   font-weight: bold;
   color: green;
+}
+h2 {
+  color: red;
 }
