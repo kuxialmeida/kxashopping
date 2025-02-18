@@ -1,0 +1,22 @@
+
+<div class="product-grid">
+  <% @products.each do |product| %>
+    <div class="product-card">
+      <div class="card-image">
+        <% if product.photos.attached? && product.photos.first.present? %>
+          <%= image_tag product.photos.first.variant(resize_to_fill: [300, 300]), alt: product.name, class: "card-image" %>
+        <% else %>
+          <%= image_tag 'band saw.jpg', alt: 'Band Saw', class: "card-image" %>
+        <% end %>
+      </div>
+      <div class="card-content">
+        <!--h3 class="product-name"><%= product.name %></!--h3-->
+        <p class="product-description"><%= truncate(product.description, length: 100) %></p>
+        <span class="price"><%= number_to_currency(product.price, unit: "$") %></span>
+      </div>
+      <div class="actions">
+        <%= button_to "Add to Cart", "#", method: :post, class: "add-to-cart" %>
+      </div>
+    </div>
+  <% end %>
+</div>

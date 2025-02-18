@@ -1,12 +1,89 @@
-<h1>Index de produtos</h1>
 
-<div>
+<!--div class="card-container">
   <% @products.each do |product| %>
-    <ul class="product-details">
-      <li><%= link_to product.name, product_path(product), class: "product-link" %></li>
-      <li>Descrição: <%= product.description %></li>
-      <li>Preço: <%= number_to_currency product.price %></li>
-      <li>Quatidade: <%= product.stock.presence || "0" %></li>
-    </ul>
+    <div class="card">
+      <% if product.photos.attached? && product.photos.first.present? %>
+        <%= image_tag product.photos.first.variant(resize_to_fill: [300, 300]), alt: product.name, class: "card-image" %>
+      <% else %>
+        <%= image_tag 'band saw.jpg', alt: 'Band Saw', class: "card-image" %>
+      <% end %>
+      <div class="card-body">
+        <p><%= link_to product.description, product_path(product), class: "card-description" %></p>
+        <div class="card-price">
+          <%= number_to_currency product.price %>
+          <span></span>
+        </div>
+      </div>
+      <div>
+        <div class="card-stock">Em stoque: <%= product.stock.presence || "0" %></div>
+        <div class="card-button">
+          <%= link_to 'Buy Now', product_path(product), class: 'btn' %>
+        </div>
+      </div>
+    </div>
   <% end %>
+</div>-->
+
+
+
+                            <!-- Banner --->
+
+<div class="banner">
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="<%= asset_path('banner1.jpeg') %>" class="d-block w-100" alt="First slide">
+        <div class="carousel-caption">
+          <h1>Your Future Starts Here</h1>
+          <p>Join the movement for a smarter tomorrow.</p>
+          <%= link_to "Learn More", "#", class: "cta-button" %>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="<%= asset_path('banner2.jpg') %>" class="d-block w-100" alt="Second slide">
+        <div class="carousel-caption">
+          <h1>Innovate Today</h1>
+          <p>Build a brighter future with us.</p>
+          <%= link_to "Discover More", "#", class: "cta-button" %>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="<%= asset_path('banner3.jpg') %>" class="d-block w-100" alt="Third slide">
+        <div class="carousel-caption">
+          <h1>Dream Big</h1>
+          <p>Let your ideas shape the world.</p>
+          <%= link_to "Get Started", "#", class: "cta-button" %>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+                            <!-- Product cards-->
+
+<%= render "product" %>
+
+
+                          <!-- footer -->
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
 </div>

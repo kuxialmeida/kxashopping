@@ -1,0 +1,107 @@
+body {
+  color: rgba(0, 0, 0, .6);
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  //gap: 20px;
+  //padding: 80px;
+  //border-bottom: 1px solid #000;
+  border-top: 1px solid #c8c9cc;
+  width: 100%;
+  padding: 2px 120px;
+}
+
+.product-card {
+  padding: 40px 20px 20px;
+  border-bottom: 1px solid #c8c9cc;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  font-size: 12px;
+  justify-content: space-between;
+  position: relative;
+  width: 300px;
+  min-height: 405px;
+  background-color: #fff;
+  border-radius: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.1s, box-shadow 0.2s linear;
+
+  &:hover {
+    transform: translateY(-0px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-image {
+    img {
+      //width: 100%;
+      //height: auto;
+      //display: block;
+      position: relative;
+      margin-bottom: 20px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 100%;
+      max-height: 100%;
+      //padding: 16px;
+    }
+  }
+
+  .card-content {
+    //padding: 16px;
+    margin-bottom: auto;
+    .product-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .product-description {
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 10px;
+      line-height: 1.0;
+    }
+
+    .price {
+      font-size: 1.125rem;
+      font-weight: bold;
+      color: rgba(0, 0, 0, .87);
+    }
+  }
+
+  .actions {
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
+  .add-to-cart {
+    width: 260px;
+    margin-top: 30px;
+    box-sizing: border-box;
+    line-height: normal;
+    min-height: 44px;
+    align-items: center;
+    padding: 11px 0 10px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    display: block;
+    color: rgba(0, 0, 0, .87);
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex-grow: 1;
+    &:hover {
+      background-color: #0056b3;
+      color: #fff;
+    }
+  }
+}

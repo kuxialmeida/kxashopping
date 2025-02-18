@@ -1,0 +1,36 @@
+
+                              <!-- Navbar -->
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <%= link_to "#", class: "navbar-logo" do %>
+      <%= image_tag "logo-web-transparent-white.kxa1.png" %>
+    <% end %>
+
+
+
+    <div class="navbar-menu-toggle" id="navbarToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="search-container">
+          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+          <button name="button" type="submit" class="search-button">
+            <i class="fas fa-search"></i> 
+          </button>
+        </div>
+      <% end %>
+
+
+
+    <ul class="navbar-menu">
+      <li><%= link_to "Home", root_path, class: "navbar-link" %></li>
+      <li><%= link_to "About", "#", class: "navbar-link" %></li>
+      <li><%= link_to "Services", "#", class: "navbar-link" %></li>
+      <li><%= link_to "Contact", "", class: "navbar-link" %></li>
+    </ul>
+  </div>
+</nav>

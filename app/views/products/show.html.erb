@@ -1,0 +1,23 @@
+<div class="product-show">
+  <div class="product-images">
+    <% if @product.photos.present? %>
+      <div class="carousel">
+        <% @product.photos.each do |photo| %>
+          <img src="<%= photo.url %>" alt="<%= @product.name %>">
+        <% end %>
+      </div>
+    <% else %>
+      <p>No images available</p>
+    <% end %>
+  </div>
+
+  <div class="product-details">
+    <h1><%= @product.name %></h1>
+    <p class="price">$<%= @product.price %></p>
+    <p class="description"><%= @product.description %></p>
+
+    <div class="add-to-cart">
+      <%= button_to "Add to Cart", method: :post, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
