@@ -5,6 +5,12 @@
   background: #333;
   color: white;
   padding: 1rem;
+  // fixed navbarc
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
 
   .navbar-container {
     width: 100%;
